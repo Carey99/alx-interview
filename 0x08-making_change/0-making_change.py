@@ -1,21 +1,25 @@
 #!/usr/bin/python3
-'''takes high, value and lst'''
+"""Change making module.
+"""
 
 
 def makeChange(coins, total):
-    if total == 0:
+    """Determines the fewest number of coins needed to meet a given
+    amount total when given a pile of coins of different values.
+    """
+    if total <= 0:
         return 0
-    if total < 0:
-        return -1
-
-    coins.sort(reverse=True)
+    bal = total
     count = 0
-
-    for coin in coins:
-        if total <= 0:
-            break
-        use_coin = total // coin
-        count += use_coin
-        total -= use_coin * coin
-
-    return count if total == 0 else -1
+    idx = 0
+    sorted_coins = sorted(coins, reverse=True)
+    n = len(coins)
+    while bal > 0:
+        if idx >= n:
+            return -1
+        if bal - sorted_coins[idx] >= 0:
+            bal -= sorted_coins[idx]
+            count += 1
+        else:
+            idx += 1
+    return count
