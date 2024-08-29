@@ -13,6 +13,8 @@
 
 def island_perimeter(grid):
     perimeter = 0
+    if type(grid) != list:
+        return 0
     rows = len(grid)
     cols = len(grid[0])
 
