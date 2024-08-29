@@ -1,17 +1,11 @@
 #!/usr/bin/python3
-"""
-    returns a perimeter of an island described in grid
-    grid - list of list of int
-    0 represents water
-    1 represents land
-    each cel is a square, with a side length of 1
-    cells are connected horizontally/vertically not diagonally
-    grid is rectangular with its width and height not exceeding 100
-    Grid is completely sorrounded by water
+"""returns a perimeter of an island described in grid
 """
 
 
 def island_perimeter(grid):
+    """Computes the perimeter of an island with no lakes.
+    """
     perimeter = 0
     if type(grid) != list:
         return 0
